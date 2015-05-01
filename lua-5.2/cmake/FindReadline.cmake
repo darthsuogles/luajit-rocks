@@ -1,60 +1,49 @@
-# - Find the readline library
-# This module defines
-#  READLINE_INCLUDE_DIR, path to readline/readline.h, etc.
-#  READLINE_LIBRARIES, the libraries required to use READLINE.
-#  READLINE_FOUND, If false, do not try to use READLINE.
-# also defined, but not for general use are
-# READLINE_readline_LIBRARY, where to find the READLINE library.
+# - Try to find readline include dirs and libraries 
+#
+# Usage of this module as follows:
+#
+#     find_package(Readline)
+#
+# Variables used by this module, they can change the default behaviour and need
+# to be set before calling find_package:
+#
+#  READLINE_ROOT_DIR         Set this variable to the root installation of
+#                            readline if the module has problems finding the
+#                            proper installation path.
+#
+# Variables defined by this module:
+#
+#  READLINE_FOUND            System has readline, include and lib dirs found
+#  READLINE_INCLUDE_DIR      The readline include directories. 
+#  READLINE_LIBRARIES          The readline library.
 
-# Apple readline does not support readline hooks
-# So we look for another one by default
-IF(APPLE)
-  FIND_PATH(READLINE_INCLUDE_DIR NAMES readline/readline.h PATHS
-    /sw/include
-    /opt/local/include
-    /opt/include
-    /usr/local/include
-    /usr/include/
-    NO_DEFAULT_PATH
-    )
-ENDIF(APPLE)
-FIND_PATH(READLINE_INCLUDE_DIR NAMES readline/readline.h)
+#set(READLINE_ROOT_DIR /chimerahomes/phi/local/src/readline/6.3)
 
-
-# Apple readline does not support readline hooks
-# So we look for another one by default
-IF(APPLE)
-  FIND_LIBRARY(READLINE_readline_LIBRARY NAMES readline PATHS
-    /sw/lib
-    /opt/local/lib
-    /opt/lib
-    /usr/local/lib
-    /usr/lib
-    NO_DEFAULT_PATH
-    )
-ENDIF(APPLE)
-FIND_LIBRARY(READLINE_readline_LIBRARY NAMES readline)
-
-MARK_AS_ADVANCED(
-  READLINE_INCLUDE_DIR
-  READLINE_readline_LIBRARY
+find_path(READLINE_ROOT_DIR
+  NAMES include/readline/readline.h
   )
 
-SET( READLINE_FOUND "NO" )
-IF(READLINE_INCLUDE_DIR)
-  IF(READLINE_readline_LIBRARY)
-    SET( READLINE_FOUND "YES" )
-    SET( READLINE_LIBRARIES
-      ${READLINE_readline_LIBRARY} 
-      )
+find_path(READLINE_INCLUDE_DIR
+  NAMES readline/readline.h
+  HINTS ${READLINE_ROOT_DIR}/include
+  )
 
-  ENDIF(READLINE_readline_LIBRARY)
-ENDIF(READLINE_INCLUDE_DIR)
+find_library(READLINE_LIBRARIES
+  NAMES readline
+  HINTS ${READLINE_ROOT_DIR}/lib
+  )
 
-IF(READLINE_FOUND)
-  MESSAGE(STATUS "Found readline library")
-ELSE(READLINE_FOUND)
-  IF(READLINE_FIND_REQUIRED)
-    MESSAGE(FATAL_ERROR "Could not find readline -- please give some paths to CMake")
-  ENDIF(READLINE_FIND_REQUIRED)
-ENDIF(READLINE_FOUND)
+if(READLINE_INCLUDE_DIR AND READLINE_LIBRARIES AND Ncurses_LIBRARY)
+  set(READLINE_FOUND TRUE)
+else(READLINE_INCLUDE_DIR AND READLINE_LIBRARIES AND Ncurses_LIBRARY)
+  FIND_LIBRARY(READLINE_LIBRARIES NAMES readline)
+  include(FindPackageHandleStandardArgs)
+  FIND_PACKAGE_HANDLE_STANDARD_ARGS(Readline DEFAULT_MSG READLINE_INCLUDE_DIR READLINE_LIBRARIES )
+  MARK_AS_ADVANCED(READLINE_INCLUDE_DIR READLINE_LIBRARIES)
+endif(READLINE_INCLUDE_DIR AND READLINE_LIBRARIES AND Ncurses_LIBRARY)
+
+mark_as_advanced(
+  READLINE_ROOT_DIR
+  READLINE_INCLUDE_DIR
+  READLINE_LIBRARIES
+  )

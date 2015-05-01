@@ -1,0 +1,52 @@
+Performing C SOURCE FILE Test LJ_DUALNUM_1 failed with the following output:
+Change Dir: /chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec4165852391/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec4165852391.dir/build.make CMakeFiles/cmTryCompileExec4165852391.dir/build
+gmake[1]: Entering directory `/chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp'
+/fs/gvilsw-usersupported/data/phi/local/bin/cmake -E cmake_progress_report /chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4165852391.dir/src.c.o
+/chimerahomes/phi/compilers/gcc/4.8.2/vanilla/bin/gcc   -DLJ_DUALNUM_1 -I/chimerahomes/phi/neural_net/luajit-rocks/build-tree/luajit-2.0 -I/chimerahomes/phi/neural_net/luajit-rocks/luajit-2.0/src    -o CMakeFiles/cmTryCompileExec4165852391.dir/src.c.o   -c /chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp/src.c
+/chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp/src.c:7:2: error: #error "not defined"
+ #error "not defined"
+  ^
+gmake[1]: *** [CMakeFiles/cmTryCompileExec4165852391.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp'
+gmake: *** [cmTryCompileExec4165852391/fast] Error 2
+
+Source file was:
+
+#undef LJ_DUALNUM
+#include "lj_arch.h"
+#if LJ_DUALNUM == 1
+int main() { return 0; }
+#else
+#error "not defined"
+#endif
+
+Performing C SOURCE FILE Test LJ_ABI_SOFTFP_1 failed with the following output:
+Change Dir: /chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec41164622/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec41164622.dir/build.make CMakeFiles/cmTryCompileExec41164622.dir/build
+gmake[1]: Entering directory `/chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp'
+/fs/gvilsw-usersupported/data/phi/local/bin/cmake -E cmake_progress_report /chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec41164622.dir/src.c.o
+/chimerahomes/phi/compilers/gcc/4.8.2/vanilla/bin/gcc   -DLJ_ABI_SOFTFP_1 -I/chimerahomes/phi/neural_net/luajit-rocks/build-tree/luajit-2.0 -I/chimerahomes/phi/neural_net/luajit-rocks/luajit-2.0/src    -o CMakeFiles/cmTryCompileExec41164622.dir/src.c.o   -c /chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp/src.c
+/chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp/src.c:7:2: error: #error "not defined"
+ #error "not defined"
+  ^
+gmake[1]: *** [CMakeFiles/cmTryCompileExec41164622.dir/src.c.o] Error 1
+gmake[1]: Leaving directory `/chimerahomes/phi/neural_net/luajit-rocks/build-tree/CMakeFiles/CMakeTmp'
+gmake: *** [cmTryCompileExec41164622/fast] Error 2
+
+Source file was:
+
+#undef LJ_ABI_SOFTFP
+#include "lj_arch.h"
+#if LJ_ABI_SOFTFP == 1
+int main() { return 0; }
+#else
+#error "not defined"
+#endif
+

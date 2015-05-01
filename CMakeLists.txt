@@ -1,5 +1,10 @@
 PROJECT(luajit-rocks)
 
+message("Use customized build of readline and ncurses")
+set(READLINE_ROOT_DIR "$READLINE_ROOT")
+set(CMAKE_EXE_LINKER_FLAGS "-L$READLINE_ROOT/lib -lreadline -L$NCURSES_ROOT/lib -lncurses")
+
+
 # We want release compilation by default
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE Release CACHE STRING

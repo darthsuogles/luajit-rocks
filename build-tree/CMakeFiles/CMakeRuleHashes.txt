@@ -1,0 +1,9 @@
+# Hashes of file build rules.
+98b0ce9c88c093f22a1d8ae35d0c965f luajit-2.0/buildvm_arch.h
+f53f532d203ce95040fb45437d24cc00 luajit-2.0/lj_bcdef.h
+139c120e6eefd610f4c5dab547959972 luajit-2.0/lj_ffdef.h
+5843b7fe5e96a0d23847d9c36b92b570 luajit-2.0/lj_folddef.h
+30cc3a671e79874f88aad01cb7ca76a9 luajit-2.0/lj_libdef.h
+dfc9dcb497fef21c7831ae9ed81be5b8 luajit-2.0/lj_recdef.h
+ea7078e259bc41f056e511ee694c18cd luajit-2.0/lj_vm.s
+747e18e499548166ab088e20544b42a9 luajit-2.0/vmdef.lua

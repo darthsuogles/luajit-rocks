@@ -1,0 +1,4 @@
+/chimerahomes/phi/neural_net/luajit-rocks/build-tree/luajit-2.0/CMakeFiles/buildvm.dir
+/chimerahomes/phi/neural_net/luajit-rocks/build-tree/luajit-2.0/CMakeFiles/libluajit.dir
+/chimerahomes/phi/neural_net/luajit-rocks/build-tree/luajit-2.0/CMakeFiles/luajit.dir
+/chimerahomes/phi/neural_net/luajit-rocks/build-tree/luajit-2.0/CMakeFiles/minilua.dir
