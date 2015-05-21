@@ -1,1 +1,0 @@
-/chimerahomes/phi/compilers/gcc/4.8.2/vanilla/bin/gcc  -O3 -DNDEBUG  -L/chimerahomes/phi/local/src/readline/6.3/lib -lreadline -L/chimerahomes/phi/local/src/ncurses/5.9/lib -lncurses -Wl,--export-dynamic CMakeFiles/luajit.dir/src/luajit.c.o CMakeFiles/luajit.dir/src/ljamalg.c.o CMakeFiles/luajit.dir/lj_vm.s.o  -o luajit -rdynamic -lreadline -ldl -lm 
